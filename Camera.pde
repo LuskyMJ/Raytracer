@@ -37,7 +37,11 @@ class Camera
         
         
         RayHitInfo hitInfo = ray.checkCollision(sphere);
-        if (hitInfo.didHit) stroke(255, 0, 0);
+        if (hitInfo.didHit)
+        {
+          PVector normal = hitInfo.hitNormal;
+          stroke((normal.x + 1f) * 0.5f * 255f, (normal.y + 1f) * 0.5f * 255f, (normal.z + 1f) * 0.5f * 255f);
+        }
         else stroke(0, 0, 0);
         point(column, row);
       }

@@ -15,7 +15,7 @@ class Ray
   
   RayHitInfo checkCollision(Sphere sphere)
   {
-    PVector difference = sphere.pos.copy().sub(origin);
+    PVector difference = sphere.position.copy().sub(origin);
     float a = direction.dot(direction);
     float b = -2.0 * direction.dot(difference);
     float c = difference.dot(difference) - sphere.radius * sphere.radius;
@@ -25,6 +25,17 @@ class Ray
     {
       float firstDist = (-b + sqrt(discriminant)) / 2 * a;
       float secondDist = (-b - sqrt(discriminant)) / 2 * a;
+      
+      float dist;
+      if (firstDist < secondDist) dist = firstDist;
+      else dist = secondDist;
+      
+      PVector hitPoint = PVector.add( this.origin, PVector.mult(this.direction, dist) );
+      PVector hitNormal = PVector.sub( hitPoint, sphere.position );
+      RayHitInfo hitInfo = new RayHitInfo(true);
+      hitInfo.hitPoint = hitPoint;
+      hitInfo.hitNormal = hitNormal.div(sphere.radius);
+      return hitInfo;
     }
     
     else return new RayHitInfo(false);

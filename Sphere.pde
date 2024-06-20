@@ -1,12 +1,12 @@
 class Sphere
 {
-  PVector pos;
+  PVector position;
   float radius;
   RTMaterial mat;
   
-  Sphere(PVector pos, float radius)
+  Sphere(PVector position, float radius)
   {
-    this.pos = pos;
+    this.position = position;
     this.radius = radius;
   }
   
