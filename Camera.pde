@@ -36,14 +36,18 @@ class Camera
         Ray ray = new Ray(new PVector(0, 0, 0), rayDir);
         
         
-        RayHitInfo hitInfo = ray.checkCollision(sphere);
-        if (hitInfo.didHit)
+        
+        for (Sphere sphere: spheres)
         {
-          PVector normal = hitInfo.hitNormal;
-          stroke((normal.x + 1f) * 0.5f * 255f, (normal.y + 1f) * 0.5f * 255f, (normal.z + 1f) * 0.5f * 255f);
+          RayHitInfo hitInfo = ray.checkCollision(sphere);
+          if (hitInfo.didHit)
+          {
+            PVector normal = hitInfo.hitNormal;
+            stroke((normal.x + 1f) * 0.5f * 255f, (normal.y + 1f) * 0.5f * 255f, (normal.z + 1f) * 0.5f * 255f);
+          }
+          else stroke(0, 0, 0);
+          point(column, row);
         }
-        else stroke(0, 0, 0);
-        point(column, row);
       }
     }
   }

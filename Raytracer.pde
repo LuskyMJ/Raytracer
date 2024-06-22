@@ -1,6 +1,7 @@
 Camera cam;
 Sphere sphere;
 RTMaterial testMat;
+Sphere[] spheres;
 
 void setup()
 {
@@ -12,7 +13,10 @@ void setup()
   
   // Object init
   cam = new Camera(60f, 60f);
-  sphere = new Sphere(new PVector(0, 0, 2), 0.3);
+  spheres = new Sphere[] {
+    new Sphere(new PVector(0, 0, 2), 0.3),
+    new Sphere(new PVector(0.1, 0.1, 2), 0.1)
+  };
 }
 
 void draw()
