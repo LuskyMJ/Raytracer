@@ -2,7 +2,7 @@ class Sphere
 {
   PVector position;
   float radius;
-  RTMaterial mat;
+  Material material;
   
   Sphere(PVector position, float radius)
   {
@@ -10,8 +10,8 @@ class Sphere
     this.radius = radius;
   }
   
-  void setRTMaterial(RTMaterial mat)
+  void setMaterial(Material material)
   {
-    this.mat = mat;
+    this.material = material;
   }
 }

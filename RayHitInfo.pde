@@ -1,8 +1,9 @@
 class RayHitInfo
 {
   boolean didHit;
-  PVector hitPoint, hitNormal;
-  RTMaterial hitMaterial;
+  PVector hitPoint, normal;
+  float hitDist;
+  Material hitMaterial;
   
   RayHitInfo(boolean didHit)
   {
